@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dyhvydbi2od4w" path="res://assets/male_characters/PNG/Unarmed_Idle/Unarmed_Idle_full.png" id="1_tklyj"]
 [ext_resource type="Texture2D" uid="uid://4plvl04id3f7" path="res://assets/male_characters/PNG/Unarmed_Walk/Unarmed_Walk_full.png" id="2_s3vkv"]
-[ext_resource type="Script" path="res://scripts/interaction_detector.gd" id="3_r5aqa"]
+[ext_resource type="Script" path="res://scripts/interactor.gd" id="3_rkbut"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="4_1lfar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoc3o"]
@@ -381,7 +381,7 @@ animations = [{
 radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eatos"]
-radius = 17.0294
+radius = 11.0
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -395,12 +395,12 @@ frame_progress = 0.113221
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_37ojt")
 
-[node name="InteractionDetector" type="Area2D" parent="."]
+[node name="Interactor" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("3_r5aqa")
+script = ExtResource("3_rkbut")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor"]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_eatos")
 

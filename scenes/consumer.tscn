@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1evaa01a0ekl"]
+
+[ext_resource type="Script" path="res://scripts/consumer.gd" id="1_ktxcw"]
+[ext_resource type="Texture2D" uid="uid://ccty701st4jyl" path="res://assets/cave_objects/PNG/Objects_separately/128/magic_circle_dark_shadow.png" id="1_r8i4s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mb5hk"]
+radius = 39.0128
+
+[sub_resource type="LabelSettings" id="LabelSettings_w22fj"]
+font_size = 9
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Consumer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r8i4s")
+
+[node name="Consumer" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ktxcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Consumer"]
+scale = Vector2(1, 0.82)
+shape = SubResource("CircleShape2D_mb5hk")
+
+[node name="InteractionPrompt" type="Label" parent="Consumer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -53.0
+offset_right = 41.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E] place
+"
+label_settings = SubResource("LabelSettings_w22fj")
+horizontal_alignment = 1

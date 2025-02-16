@@ -5,13 +5,27 @@ var _carried_item: Item
 
 @onready var carried_item_icon: Sprite2D = $CarriedItemIcon
 
-func pick_up(item: Item) -> void:
-    if is_full():
+func add(item: Item) -> void:
+    if has_item():
         return
 
     _carried_item = item
-    carried_item_icon.texture = item.icon
+    _update_icon()
 
 
-func is_full() -> bool:
+func remove() -> Item:
+    var item := _carried_item
+    _carried_item = null
+    _update_icon()
+    return item
+
+
+func has_item() -> bool:
     return _carried_item != null
+
+
+func _update_icon() -> void:
+    if _carried_item:
+        carried_item_icon.texture = _carried_item.icon
+    else:
+        carried_item_icon.texture = null
