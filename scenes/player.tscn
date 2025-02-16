@@ -1,7 +1,9 @@
-[gd_scene load_steps=52 format=3 uid="uid://cojhx0jffxabc"]
+[gd_scene load_steps=55 format=3 uid="uid://cojhx0jffxabc"]
 
 [ext_resource type="Texture2D" uid="uid://dyhvydbi2od4w" path="res://assets/male_characters/PNG/Unarmed_Idle/Unarmed_Idle_full.png" id="1_tklyj"]
 [ext_resource type="Texture2D" uid="uid://4plvl04id3f7" path="res://assets/male_characters/PNG/Unarmed_Walk/Unarmed_Walk_full.png" id="2_s3vkv"]
+[ext_resource type="Script" path="res://scripts/interaction_detector.gd" id="3_r5aqa"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="4_1lfar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoc3o"]
 atlas = ExtResource("1_tklyj")
@@ -378,6 +380,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_37ojt"]
 radius = 6.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_eatos"]
+radius = 17.0294
+
 [node name="Player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -389,3 +394,18 @@ frame_progress = 0.113221
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_37ojt")
+
+[node name="InteractionDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_r5aqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_eatos")
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("4_1lfar")
+
+[node name="CarriedItemIcon" type="Sprite2D" parent="Inventory"]
+position = Vector2(0, -33)
