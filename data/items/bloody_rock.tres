@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dfh4h5t5hpgq7"]
+
+[ext_resource type="Texture2D" uid="uid://dvvlj0n07rnwg" path="res://assets/rocks_and_stones/PNG/Objects_separately/Rock1_5_no_shadow.png" id="1_ceafs"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_wx10p"]
+
+[resource]
+script = ExtResource("2_wx10p")
+name = "Stone"
+icon = ExtResource("1_ceafs")

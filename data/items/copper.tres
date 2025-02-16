@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cdsab57vu0m4u"]
+
+[ext_resource type="Texture2D" uid="uid://ch2rscc7ad1n7" path="res://assets/ores/ore.png" id="1_mkq8j"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_euuhq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj0ya"]
+atlas = ExtResource("1_mkq8j")
+region = Rect2(0, 320, 32, 32)
+
+[resource]
+script = ExtResource("2_euuhq")
+name = "coal"
+icon = SubResource("AtlasTexture_lj0ya")
