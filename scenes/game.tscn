@@ -23,12 +23,16 @@ tile_set = ExtResource("1_ncssr")
 
 [node name="Consumer" parent="." instance=ExtResource("3_r62ag")]
 y_sort_enabled = true
-position = Vector2(-87, 3)
+position = Vector2(-83, 11)
 
-[node name="Collectible" parent="." instance=ExtResource("1_ss0bx")]
-position = Vector2(122, -9)
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_2xg75")]
+[node name="Collectible" parent="YSort" instance=ExtResource("1_ss0bx")]
+position = Vector2(122, 0)
+
+[node name="Player" parent="YSort" instance=ExtResource("1_2xg75")]
+position = Vector2(115, 3)
 script = ExtResource("2_7c8ot")
 
 [node name="Camera2D" type="Camera2D" parent="."]
