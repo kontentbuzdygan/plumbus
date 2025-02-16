@@ -194,7 +194,7 @@ region = Rect2(320, 192, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_5v6mo"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_eoc3o")
 }, {
 "duration": 1.0,
@@ -211,7 +211,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"down_idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -234,10 +234,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"down_walk",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_nlu3m")
 }, {
 "duration": 1.0,
@@ -260,7 +260,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"left_idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -283,10 +283,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"left_walk",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_r5nkb")
 }, {
 "duration": 1.0,
@@ -309,7 +309,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"right_idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -332,10 +332,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"right_walk",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_b46tg")
 }, {
 "duration": 1.0,
@@ -349,7 +349,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"up_idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -372,11 +372,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"up_walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_37ojt"]
-radius = 5.0
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -384,8 +384,8 @@ radius = 5.0
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_5v6mo")
 animation = &"down_idle"
-frame_progress = 0.819774
+frame_progress = 0.113221
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_37ojt")
