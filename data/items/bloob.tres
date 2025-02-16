@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dm8q0hff5sguu"]
+
+[ext_resource type="Texture2D" uid="uid://dliirmkihovyg" path="res://assets/bushes/PNG/Assets/Bush_blue_flowers3.png" id="1_8jkhi"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_k5av8"]
+
+[resource]
+script = ExtResource("1_k5av8")
+name = "Bloob"
+icon = ExtResource("1_8jkhi")

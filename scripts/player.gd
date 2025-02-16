@@ -1,10 +1,12 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var inventory: Inventory = $Inventory
 
 const SPEED = 150.0
 
-var direction_names = { 
+var direction_names = {
 	Vector2.LEFT: "left",
 	Vector2.RIGHT: "right",
 	Vector2.UP: "up",
@@ -28,5 +30,5 @@ func update_animation(direction: Vector2) -> void:
 			return
 		Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN:
 			last_direction = direction
-			
+
 	animated_sprite_2d.play(direction_names.get(last_direction) + "_walk")
