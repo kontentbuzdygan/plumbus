@@ -1,10 +1,24 @@
 extends Area2D
 
+var _current_interactable: Node2D
+
+
+func _process(_delta: float) -> void:
+    var new_interactable := closest_interactable()
+
+    if new_interactable != _current_interactable:
+        if _current_interactable and _current_interactable.has_method("exit_interaction"):
+            _current_interactable.exit_interaction(owner)
+        if new_interactable and new_interactable.has_method("enter_interaction"):
+            new_interactable.enter_interaction(owner)
+
+    _current_interactable = new_interactable
+
+
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("interact"):
-        var closest_body := closest_interactable()
-        if closest_body and closest_body.has_method("interact"):
-            closest_body.interact(owner)
+        if _current_interactable and _current_interactable.has_method("interact"):
+            _current_interactable.interact(owner)
 
 
 func closest_interactable() -> Node2D:
