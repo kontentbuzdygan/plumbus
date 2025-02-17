@@ -3,7 +3,7 @@ class_name Consumer
 
 
 func _is_interactable(player: Player) -> bool:
-    return player.inventory.has_item()
+    return player.inventory.get_item() != null
 
 
 func _interact(player: Player) -> void:
