@@ -5,10 +5,10 @@
 [ext_resource type="Resource" uid="uid://dm8q0hff5sguu" path="res://data/items/bloob.tres" id="2_i186e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3t5oh"]
-size = Vector2(32, 11)
+size = Vector2(26, 11.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ruiwk"]
-radius = 15.0
+radius = 17.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_i0poe"]
 font_size = 9
@@ -22,7 +22,7 @@ position = Vector2(0, -19)
 texture = ExtResource("1_af6gf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -8)
+position = Vector2(1, -11)
 shape = SubResource("RectangleShape2D_3t5oh")
 
 [node name="Collectible" type="Area2D" parent="."]
