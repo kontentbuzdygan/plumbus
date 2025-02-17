@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://btkpbummiddo7"]
+
+[ext_resource type="Texture2D" uid="uid://bsfxqg0no170e" path="res://assets/undead_tileset/PNG/Objects_separately/Bones_shadow1_2.png" id="1_mxgh3"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_pvnaj"]
+
+[resource]
+script = ExtResource("2_pvnaj")
+name = "Skull"
+icon = ExtResource("1_mxgh3")
