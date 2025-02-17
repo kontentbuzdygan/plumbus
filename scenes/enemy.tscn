@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2axs6stvj3ee"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_36q8m"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="3_ed3f8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1eju"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84sur"]
+radius = 15.0333
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_36q8m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_m1eju")
+
+[node name="Killzone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_ed3f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_84sur")
+
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
