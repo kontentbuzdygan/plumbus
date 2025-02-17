@@ -5,9 +5,9 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lj0ya"]
 atlas = ExtResource("1_mkq8j")
-region = Rect2(0, 320, 32, 32)
+region = Rect2(96, 352, 32, 32)
 
 [resource]
 script = ExtResource("2_euuhq")
-name = "coal"
+name = "Copper"
 icon = SubResource("AtlasTexture_lj0ya")
