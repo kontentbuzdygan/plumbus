@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg7l5qu7v2scq"]
+[gd_scene load_steps=9 format=3 uid="uid://bg7l5qu7v2scq"]
 
 [ext_resource type="PackedScene" uid="uid://cojhx0jffxabc" path="res://scenes/player.tscn" id="1_2xg75"]
 [ext_resource type="PackedScene" uid="uid://dywkso3al7ms0" path="res://scenes/collectible.tscn" id="1_ss0bx"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_7c8ot"]
 [ext_resource type="PackedScene" uid="uid://b1evaa01a0ekl" path="res://scenes/consumer.tscn" id="3_r62ag"]
+[ext_resource type="Script" path="res://scripts/recipe.gd" id="6_d7ue0"]
 [ext_resource type="PackedScene" uid="uid://bmvim68o51onp" path="res://scenes/crafting_station.tscn" id="6_l8a5n"]
+[ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="7_6vkxm"]
+[ext_resource type="Resource" uid="uid://gghchlnoxfa0" path="res://data/recipes/crown_from_bloob_and_iron.tres" id="8_cgsw4"]
 
 [node name="Game" type="Node2D"]
 
@@ -25,6 +28,11 @@ script = ExtResource("2_7c8ot")
 [node name="CraftingStation" parent="YSort" instance=ExtResource("6_l8a5n")]
 position = Vector2(71, 57)
 
+[node name="CraftingStation" parent="YSort/CraftingStation" index="2"]
+recipes = Array[ExtResource("6_d7ue0")]([ExtResource("7_6vkxm"), ExtResource("8_cgsw4")])
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -16)
 zoom = Vector2(4, 4)
+
+[editable path="YSort/CraftingStation"]

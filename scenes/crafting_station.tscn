@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b4s73a3n0vsx6" path="res://assets/cave_objects/PNG/Objects_separately/128/white_crystal_light_shadow3.png" id="1_0ru2b"]
 [ext_resource type="Script" path="res://scripts/crafting_station.gd" id="2_bovfs"]
 [ext_resource type="Script" path="res://scripts/recipe.gd" id="3_vh8o4"]
-[ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/bloob_from_bloob.tres" id="4_i4dwj"]
+[ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="4_i4dwj"]
 [ext_resource type="Script" path="res://scripts/timer_progress_bar.gd" id="5_a38qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aswbs"]

@@ -47,6 +47,7 @@ func _add_item(item: Item) -> void:
 
     var icon := TextureRect.new()
     icon.texture = item.icon
+    icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
     _item_icons_container.add_child(icon)
 
 
