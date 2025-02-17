@@ -5,8 +5,9 @@ var _carried_item: Item
 
 @onready var carried_item_icon: Sprite2D = $CarriedItemIcon
 
+
 func add(item: Item) -> void:
-    if has_item():
+    if _carried_item:
         return
 
     _carried_item = item
@@ -20,8 +21,12 @@ func remove() -> Item:
     return item
 
 
-func has_item() -> bool:
+func is_full() -> bool:
     return _carried_item != null
+
+
+func get_item() -> Item:
+    return _carried_item
 
 
 func _update_icon() -> void:
