@@ -12,12 +12,12 @@ var _finished: bool = false
 
 
 func _is_interactable(player: Player) -> bool:
-    return _active_recipe == null and player.inventory.get_item() != null \
-        or _finished and not player.inventory.is_full()
+    return _is_accepting_items() and player.inventory.get_item() != null \
+        or _is_providing_items() and not player.inventory.is_full()
 
 
 func _interact(player: Player) -> void:
-    if _finished:
+    if _is_providing_items():
         player.inventory.add(_items[0])
         _clear_items()
         _finished = false
@@ -56,3 +56,11 @@ func _clear_items() -> void:
 
     for icon in _item_icons_container.get_children():
         icon.queue_free()
+
+
+func _is_accepting_items() -> bool:
+    return _active_recipe == null and not _finished
+
+
+func _is_providing_items() -> bool:
+    return _active_recipe == null and _finished and not _items.is_empty()
