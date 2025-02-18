@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ca7tx7v2g6ajg"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_21x80"]
+[ext_resource type="Texture2D" uid="uid://dcnkg00owg217" path="res://assets/rpg-loot/PNG/Transperent/Icon14.png" id="1_68ne3"]
+
+[resource]
+script = ExtResource("1_21x80")
+name = "Scales"
+icon = ExtResource("1_68ne3")

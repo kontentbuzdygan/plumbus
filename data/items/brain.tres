@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cjcgpxl8jvpc6"]
+
+[ext_resource type="Texture2D" uid="uid://cp6f24pfrgalq" path="res://assets/undead-loot/PNG/Transperent/Icon14.png" id="1_8hxrw"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_dj16r"]
+
+[resource]
+script = ExtResource("1_dj16r")
+name = "Brain"
+icon = ExtResource("1_8hxrw")

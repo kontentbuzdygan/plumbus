@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0usx65ghev65"]
+
+[ext_resource type="Texture2D" uid="uid://2rkqginy1vt7" path="res://assets/crystals/PNG/Assets/Pink_crystal4.png" id="1_q3820"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_x5fwf"]
+
+[resource]
+script = ExtResource("2_x5fwf")
+name = "Pink crystal"
+icon = ExtResource("1_q3820")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://barmb3tcwk7b2"]
+
+[ext_resource type="Texture2D" uid="uid://cdtle25yi8cen" path="res://assets/goblin-loot/PNG/Transperent/Icon33.png" id="1_8c6x7"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_326us"]
+
+[resource]
+script = ExtResource("1_326us")
+name = "Torch"
+icon = ExtResource("1_8c6x7")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cgn8kc3xl5u6q"]
+
+[ext_resource type="Texture2D" uid="uid://bhqkdm0q4d1ja" path="res://assets/undead-loot/PNG/Transperent/Icon38.png" id="1_4ae23"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_m5ey5"]
+
+[resource]
+script = ExtResource("1_m5ey5")
+name = "Voodoo doll"
+icon = ExtResource("1_4ae23")

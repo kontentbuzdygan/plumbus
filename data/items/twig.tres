@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://p66g2jms1hme"]
+
+[ext_resource type="Texture2D" uid="uid://grs4jap3g6og" path="res://assets/undead_tileset/PNG/Objects_separately/Plant_shadow3_5.png" id="1_y44jr"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_b6yuh"]
+
+[resource]
+script = ExtResource("2_b6yuh")
+name = "Twig"
+icon = ExtResource("1_y44jr")

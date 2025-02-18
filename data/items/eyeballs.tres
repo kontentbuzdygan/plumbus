@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bapaam2nvpqe7"]
+
+[ext_resource type="Texture2D" uid="uid://dx5ipxm2qncs4" path="res://assets/goblin-loot/PNG/Transperent/Icon10.png" id="1_8jk57"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_ahtwh"]
+
+[resource]
+script = ExtResource("1_ahtwh")
+name = "Eyeballs"
+icon = ExtResource("1_8jk57")
