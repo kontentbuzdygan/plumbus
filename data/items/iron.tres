@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dsswiobm36m5s"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://g3x041c3gyx4"]
 
 [ext_resource type="Texture2D" uid="uid://ch2rscc7ad1n7" path="res://assets/ores/ore.png" id="1_15oes"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="2_2qjal"]
