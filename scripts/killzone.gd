@@ -3,7 +3,8 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	print("You died!")
-	call_deferred("kill_player")
+	body.die()
+	#call_deferred("kill_player")
 	
 
 func kill_player():

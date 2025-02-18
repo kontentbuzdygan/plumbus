@@ -1,6 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://cojhx0jffxabc"]
+[gd_scene load_steps=56 format=3 uid="uid://cojhx0jffxabc"]
 
 [ext_resource type="Texture2D" uid="uid://dyhvydbi2od4w" path="res://assets/male_characters/PNG/Unarmed_Idle/Unarmed_Idle_full.png" id="1_tklyj"]
+[ext_resource type="PackedScene" uid="uid://bivecv05dm404" path="res://scenes/blood_splatter.tscn" id="1_xi5cw"]
 [ext_resource type="Texture2D" uid="uid://4plvl04id3f7" path="res://assets/male_characters/PNG/Unarmed_Walk/Unarmed_Walk_full.png" id="2_s3vkv"]
 [ext_resource type="Script" path="res://scripts/interactor.gd" id="3_rkbut"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="4_1lfar"]
@@ -386,6 +387,11 @@ radius = 9.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
 motion_mode = 1
+
+[node name="Blood splatter" parent="." instance=ExtResource("1_xi5cw")]
+position = Vector2(0, -50)
+emitting = false
+one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)

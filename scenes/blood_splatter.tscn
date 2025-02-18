@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bivecv05dm404"]
+
+[ext_resource type="Texture2D" uid="uid://cjd46wsr4pttq" path="res://assets/particle/Spritesheets/Fire+Sparks-Sheet.png" id="1_q7kbf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_udrlh"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d4b3a"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="Blood splatter" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_udrlh")
+position = Vector2(2, -35)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_d4b3a")
+texture = ExtResource("1_q7kbf")

@@ -3,6 +3,7 @@ class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Inventory = $Inventory
+@onready var blood_splatter: GPUParticles2D = $"Blood splatter"
 
 const SPEED = 150.0
 
@@ -33,3 +34,7 @@ func update_animation(direction: Vector2) -> void:
 			last_direction = direction
 
 	animated_sprite_2d.play(direction_names.get(last_direction) + "_walk")
+	
+
+func die():
+	blood_splatter.emitting = true
