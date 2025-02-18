@@ -3,6 +3,10 @@ extends Node
 
 @export var source_tilemap: TileMapLayer
 @export var target_tilemap: TileMapLayer
+@export var margin_top: int
+@export var margin_right: int
+@export var margin_bottom: int
+@export var margin_left: int
 
 const INSPECTOR_BUTTON_LABEL := "Recalculate tiles"
 
@@ -19,21 +23,34 @@ const CELL_NEIGHBORS := {
 
 
 func _inspector_button_pressed() -> void:
-    for coord in source_tilemap.get_used_cells():
-        var tile := source_tilemap.get_cell_tile_data(coord)
+    var used_rect := source_tilemap.get_used_rect()
+    var generation_rect := Rect2i(
+        used_rect.position - Vector2i(margin_left, margin_top),
+        used_rect.size + Vector2i(margin_left + margin_right, margin_top + margin_bottom),
+    )
 
-        var peering_bits := {}
-        for neighbor_key in CELL_NEIGHBORS:
-            var neighbor_coord := source_tilemap.get_neighbor_cell(coord, CELL_NEIGHBORS[neighbor_key])
-            var neighbor_tile = source_tilemap.get_cell_tile_data(neighbor_coord)
+    var source_id := target_tilemap.tile_set.get_source_id(0)
+    var source := target_tilemap.tile_set.get_source(source_id)
 
-            peering_bits[neighbor_key] = -1 if neighbor_tile == null else neighbor_tile.terrain
+    for x in range(generation_rect.size.x):
+        for y in range(generation_rect.size.y):
+            var coord := generation_rect.position + Vector2i(x, y)
+            _generate_tile(coord, source_id, source)
 
-        var source_id := target_tilemap.tile_set.get_source_id(0)
-        var source := target_tilemap.tile_set.get_source(source_id)
 
-        var target_tile_id := _find_tile_id_for_terrain(source, tile.terrain, peering_bits)
-        target_tilemap.set_cell(coord, source_id, target_tile_id, 0)
+func _generate_tile(coord: Vector2i, source_id: int, source: TileSetAtlasSource) -> void:
+    var tile := source_tilemap.get_cell_tile_data(coord)
+    var terrain := tile.terrain if tile else -1
+
+    var peering_bits := {}
+    for neighbor_key in CELL_NEIGHBORS:
+        var neighbor_coord := source_tilemap.get_neighbor_cell(coord, CELL_NEIGHBORS[neighbor_key])
+        var neighbor_tile = source_tilemap.get_cell_tile_data(neighbor_coord)
+
+        peering_bits[neighbor_key] = -1 if neighbor_tile == null else neighbor_tile.terrain
+
+    var target_tile_id := _find_tile_id_for_terrain(source, terrain, peering_bits)
+    target_tilemap.set_cell(coord, source_id, target_tile_id, 0)
 
 
 func _find_tile_id_for_terrain(source: TileSetAtlasSource, terrain: int, peering_bits: Dictionary) -> Vector2i:
