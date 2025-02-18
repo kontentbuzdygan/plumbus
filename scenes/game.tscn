@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg7l5qu7v2scq"]
+[gd_scene load_steps=13 format=3 uid="uid://bg7l5qu7v2scq"]
 
 [ext_resource type="PackedScene" uid="uid://cojhx0jffxabc" path="res://scenes/player.tscn" id="1_2xg75"]
 [ext_resource type="PackedScene" uid="uid://cy56dpg6eiijb" path="res://scenes/terrain.tscn" id="1_mo36r"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="7_6vkxm"]
 [ext_resource type="Resource" uid="uid://gghchlnoxfa0" path="res://data/recipes/crown_from_bloob_and_iron.tres" id="8_cgsw4"]
 [ext_resource type="PackedScene" uid="uid://pkw1nnjky3hh" path="res://scenes/vampire.tscn" id="9_on08r"]
+[ext_resource type="PackedScene" uid="uid://d476qxii2ap0" path="res://scenes/hud.tscn" id="10_s5j6n"]
+[ext_resource type="PackedScene" uid="uid://dlpkpthdtgw1s" path="res://scenes/game_countdown.tscn" id="11_th1tj"]
 
 [node name="Game" type="Node2D"]
 
@@ -43,5 +45,9 @@ recipes = Array[ExtResource("6_d7ue0")]([ExtResource("7_6vkxm"), ExtResource("8_
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, 18)
 zoom = Vector2(2, 2)
+
+[node name="HUD" parent="." instance=ExtResource("10_s5j6n")]
+
+[node name="GameCountdown" parent="." instance=ExtResource("11_th1tj")]
 
 [editable path="YSort/CraftingStation"]
