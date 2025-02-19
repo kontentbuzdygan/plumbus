@@ -5,11 +5,14 @@ var _carried_item: Item
 
 @onready var carried_item_icon: Sprite2D = $CarriedItemIcon
 
+func swap(item: Item) -> void:
+    if is_full():
+        remove()
+    else:
+        add(item)
+
 
 func add(item: Item) -> void:
-    if _carried_item:
-        return
-
     _carried_item = item
     _update_icon()
 

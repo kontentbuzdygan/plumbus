@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bmvim68o51onp" path="res://scenes/crafting_station.tscn" id="6_l8a5n"]
 [ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="7_6vkxm"]
 [ext_resource type="Resource" uid="uid://gghchlnoxfa0" path="res://data/recipes/crown_from_bloob_and_iron.tres" id="8_cgsw4"]
-[ext_resource type="PackedScene" uid="uid://pkw1nnjky3hh" path="res://scenes/vampire.tscn" id="9_on08r"]
 
 [node name="Game" type="Node2D"]
 
@@ -30,9 +29,6 @@ position = Vector2(135, -39)
 [node name="Player" parent="YSort" instance=ExtResource("1_2xg75")]
 position = Vector2(23, 3)
 script = ExtResource("2_7c8ot")
-
-[node name="Enemy" parent="YSort" instance=ExtResource("9_on08r")]
-position = Vector2(-90, -94)
 
 [node name="CraftingStation" parent="YSort" instance=ExtResource("6_l8a5n")]
 position = Vector2(71, 57)

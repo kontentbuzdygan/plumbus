@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func enter_interaction(player: Player) -> void:
     _prompt.visible = _is_interactable(player)
+    _prompt.text = _get_prompt_text(player)
 
 
 func exit_interaction(_player: Player) -> void:
@@ -19,8 +20,8 @@ func exit_interaction(_player: Player) -> void:
 func interact(_player: Player) -> void:
     if _is_interactable(_player):
         _interact(_player)
-
-    _prompt.visible = false
+    _prompt.visible = _is_interactable(_player)
+    _prompt.text = _get_prompt_text(_player)
 
 
 func _is_interactable(_player: Player) -> bool:
@@ -29,3 +30,7 @@ func _is_interactable(_player: Player) -> bool:
 
 func _interact(_player: Player) -> void:
     pass
+    
+    
+func _get_prompt_text(_player: Player) -> String:
+    return "[E] put down" if _player.inventory.is_full() else "[E] pick up"

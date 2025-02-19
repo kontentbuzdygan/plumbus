@@ -5,8 +5,9 @@ class_name Collectible
 
 
 func _is_interactable(player: Player) -> bool:
-    return not player.inventory.is_full()
+    return not player.inventory.is_full() or player.inventory._carried_item == item
 
 
 func _interact(player: Player) -> void:
-    player.inventory.add(item)
+    if _is_interactable(player):
+        player.inventory.swap(item)

@@ -34,12 +34,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -39.0
-offset_top = -53.0
+offset_top = -71.0
 offset_right = 41.0
-offset_bottom = -30.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "[E] place
 "
 label_settings = SubResource("LabelSettings_w22fj")
 horizontal_alignment = 1
+
+[node name="ItemIconsContainer" type="HBoxContainer" parent="Consumer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -49.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
