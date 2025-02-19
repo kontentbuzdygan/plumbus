@@ -9,15 +9,16 @@ class_name CraftingStation
 var _items: Array[Item] = []
 var _active_recipe: Recipe
 var _finished: bool = false
+var _in_progress: bool = false
 
 
 func _is_interactable(player: Player) -> bool:
     return _is_accepting_items() and player.inventory.get_item() != null \
-        or _is_providing_items() and not player.inventory.is_full()
+        or _is_providing_items(player)
 
 
 func _interact(player: Player) -> void:
-    if _is_providing_items():
+    if _is_providing_items(player):
         player.inventory.add(_items[0])
         _clear_items()
         _finished = false
@@ -31,6 +32,7 @@ func _interact(player: Player) -> void:
         if recipe.is_satisfied(_items):
             _active_recipe = recipe
             _timer.start(recipe.time_seconds)
+            _in_progress = true
 
 
 func _on_timer_timeout() -> void:
@@ -39,6 +41,8 @@ func _on_timer_timeout() -> void:
         _add_item(_active_recipe.result)
         _active_recipe = null
         _finished = true
+        _in_progress = false
+        $InteractionPrompt.visible = true;
         $InteractionPrompt.text = "[E] take"
 
 
@@ -62,5 +66,5 @@ func _is_accepting_items() -> bool:
     return _active_recipe == null and not _finished
 
 
-func _is_providing_items() -> bool:
-    return _active_recipe == null and _finished and not _items.is_empty()
+func _is_providing_items(player: Player) -> bool:
+    return not _items.is_empty() and not player.inventory.is_full() and not _in_progress
