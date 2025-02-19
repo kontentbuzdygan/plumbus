@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0usx65ghev65"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bothtqljsdh64"]
 
-[ext_resource type="Texture2D" uid="uid://dqtr3k55eongs" path="res://assets/rocks_and_stones/PNG/Objects_separately/Rock4_5.png" id="1_et5ii"]
-[ext_resource type="Script" path="res://scripts/item.gd" id="2_456vf"]
+[ext_resource type="Texture2D" uid="uid://dqtr3k55eongs" path="res://assets/rocks_and_stones/PNG/Objects_separately/Rock4_5.png" id="1_o2ksp"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_pvnaj"]
 
 [resource]
-script = ExtResource("2_456vf")
+script = ExtResource("2_pvnaj")
 name = "Rock"
-icon = ExtResource("1_et5ii")
+icon = ExtResource("1_o2ksp")

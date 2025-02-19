@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dax4onym5dwpx"]
+
+[ext_resource type="Texture2D" uid="uid://cnwb2x4ssul2" path="res://assets/goblin-loot/PNG/Transperent/Icon1.png" id="1_f76c3"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_4j1i0"]
+
+[resource]
+script = ExtResource("2_4j1i0")
+name = "Bone daggers"
+icon = ExtResource("1_f76c3")

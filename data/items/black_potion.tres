@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dcpjkkxej2lhs"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_ketq5"]
+[ext_resource type="Texture2D" uid="uid://dee0oom6hk2gt" path="res://assets/magic-potions/PNG/Transperent/Icon6.png" id="1_xfv3y"]
+
+[resource]
+script = ExtResource("1_ketq5")
+name = "Black potion"
+icon = ExtResource("1_xfv3y")

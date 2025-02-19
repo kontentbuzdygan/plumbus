@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bm5nb3oymwnia"]
+
+[ext_resource type="Texture2D" uid="uid://11frgtdt74a2" path="res://assets/rpg-loot/PNG/Transperent/Icon40.png" id="1_0tb7y"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_dgq8b"]
+
+[resource]
+script = ExtResource("1_dgq8b")
+name = "Red feather"
+icon = ExtResource("1_0tb7y")

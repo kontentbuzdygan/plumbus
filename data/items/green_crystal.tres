@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c4kvdcim32whh"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_1sbkt"]
+[ext_resource type="Texture2D" uid="uid://q4dm7g7ctxid" path="res://assets/crystals/PNG/Assets/Green_crystal4.png" id="1_ajive"]
+
+[resource]
+script = ExtResource("1_1sbkt")
+name = "Green crystal"
+icon = ExtResource("1_ajive")

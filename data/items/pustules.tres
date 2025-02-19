@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dja4g2vt1t1px"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_ckvpd"]
+[ext_resource type="Texture2D" uid="uid://45txu7mn2lqr" path="res://assets/cursed_land_tileset/PNG/Objects_separetely/Pustules_shadow2_3.png" id="1_fhijl"]
+
+[resource]
+script = ExtResource("1_ckvpd")
+name = "Pustules"
+icon = ExtResource("1_fhijl")

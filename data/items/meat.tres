@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bc7irb4c2vswf"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_leegw"]
+[ext_resource type="Texture2D" uid="uid://cffxth8he4xtr" path="res://assets/goblin-loot/PNG/Transperent/Icon43.png" id="1_lp427"]
+
+[resource]
+script = ExtResource("1_leegw")
+name = "Meat"
+icon = ExtResource("1_lp427")

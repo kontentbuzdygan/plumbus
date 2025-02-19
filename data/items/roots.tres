@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bfv770a5mkic2"]
-
-[ext_resource type="Texture2D" uid="uid://cckp7mtr0va0p" path="res://assets/undead_tileset/PNG/Objects_separately/Broken_ tree_shadow3_7.png" id="1_ui50y"]
-[ext_resource type="Script" path="res://scripts/item.gd" id="2_j2oik"]
-
-[resource]
-script = ExtResource("2_j2oik")
-name = "Roots"
-icon = ExtResource("1_ui50y")
