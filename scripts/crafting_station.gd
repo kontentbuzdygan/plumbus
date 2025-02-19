@@ -28,7 +28,7 @@ func _interact(player: Player) -> void:
     _add_item(item)
 
     for recipe in recipes:
-        if recipe.is_satisfied(_items):
+        if recipe.matches(_items):
             _active_recipe = recipe
             _timer.start(recipe.time_seconds)
 
