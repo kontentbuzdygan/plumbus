@@ -3,13 +3,10 @@ class_name Inventory
 
 var _carried_item: Item
 
-@onready var carried_item_icon: Sprite2D = $CarriedItemIcon
+@onready var _carried_item_icon: Sprite2D = $CarriedItemIcon
 
 
 func add(item: Item) -> void:
-    if _carried_item:
-        return
-
     _carried_item = item
     _update_icon()
 
@@ -31,6 +28,6 @@ func get_item() -> Item:
 
 func _update_icon() -> void:
     if _carried_item:
-        carried_item_icon.texture = _carried_item.icon
+        _carried_item_icon.texture = _carried_item.icon
     else:
-        carried_item_icon.texture = null
+        _carried_item_icon.texture = null

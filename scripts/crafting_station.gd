@@ -8,7 +8,7 @@ class_name CraftingStation
 
 var _items: Array[Item] = []
 var _active_recipe: Recipe
-var _finished: bool = false
+var _is_finished: bool = false
 
 
 func _is_interactable(player: Player) -> bool:
@@ -17,11 +17,10 @@ func _is_interactable(player: Player) -> bool:
 
 
 func _interact(player: Player) -> void:
-    if _is_providing_items():
+    if _is_providing_items() and player.inventory.get_item() == null:
         player.inventory.add(_items[0])
         _clear_items()
-        _finished = false
-        $InteractionPrompt.text = "[E] place"
+        _is_finished = false
         return
 
     var item := player.inventory.remove()
@@ -31,6 +30,14 @@ func _interact(player: Player) -> void:
         if recipe.is_satisfied(_items):
             _active_recipe = recipe
             _timer.start(recipe.time_seconds)
+            break
+
+
+func _prompt_text(player: Player) -> String:
+    if _is_accepting_items() and player.inventory.get_item() != null:
+        return "[E] place"
+    else:
+        return "[E] take"
 
 
 func _on_timer_timeout() -> void:
@@ -38,8 +45,8 @@ func _on_timer_timeout() -> void:
         _clear_items()
         _add_item(_active_recipe.result)
         _active_recipe = null
-        _finished = true
-        $InteractionPrompt.text = "[E] take"
+        _is_finished = true
+        _show_prompt()
 
 
 func _add_item(item: Item) -> void:
@@ -59,8 +66,8 @@ func _clear_items() -> void:
 
 
 func _is_accepting_items() -> bool:
-    return _active_recipe == null and not _finished
+    return _active_recipe == null and not _is_finished
 
 
 func _is_providing_items() -> bool:
-    return _active_recipe == null and _finished and not _items.is_empty()
+    return _active_recipe == null and _items.size() == 1
