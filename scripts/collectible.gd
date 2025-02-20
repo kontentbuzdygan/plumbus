@@ -5,9 +5,18 @@ class_name Collectible
 
 
 func _is_interactable(player: Player) -> bool:
-    return not player.inventory.is_full() or player.inventory._carried_item == item
+    return not player.inventory.is_full() or player.inventory.get_item() == item
 
 
 func _interact(player: Player) -> void:
-    if _is_interactable(player):
-        player.inventory.swap(item)
+    if player.inventory.get_item() == item:
+        player.inventory.remove()
+    else:
+        player.inventory.add(item)
+
+
+func _prompt_text(player: Player) -> String:
+    if player.inventory.get_item() == item:
+        return "[E] put back"
+    else:
+        return "[E] pick up"
