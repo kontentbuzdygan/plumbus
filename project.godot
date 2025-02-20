@@ -22,6 +22,10 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/inspector_button/plugin.cfg")
+
 [input]
 
 move_left={
