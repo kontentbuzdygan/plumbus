@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bks7j8il4uvf5"]
+
+[ext_resource type="PackedScene" uid="uid://dywkso3al7ms0" path="res://scenes/collectible.tscn" id="1_gm4jk"]
+[ext_resource type="Texture2D" uid="uid://egf6cpa887gc" path="res://assets/undead_tileset/PNG/Objects_separately/Broken_ tree_shadow3_4.png" id="2_o715l"]
+[ext_resource type="Texture2D" uid="uid://byfgdjgtjimu0" path="res://assets/goblin-loot/PNG/Transperent/Icon24.png" id="3_o3c8m"]
+[ext_resource type="Resource" path="res://data/items/axe.tres" id="4_tu6xw"]
+
+[node name="Axe" instance=ExtResource("1_gm4jk")]
+
+[node name="BrokenTreeShadow34" type="Sprite2D" parent="." index="0"]
+position = Vector2(1, -5)
+texture = ExtResource("2_o715l")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(6, -22)
+rotation = -1.51989
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("3_o3c8m")
+region_enabled = true
+region_rect = Rect2(10.189, 0, 21.811, 32.0804)
+
+[node name="Collectible" parent="." index="3"]
+item = ExtResource("4_tu6xw")

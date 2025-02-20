@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck2c8v6g6n140"]
+
+[ext_resource type="PackedScene" uid="uid://dywkso3al7ms0" path="res://scenes/collectible.tscn" id="1_4vd7a"]
+[ext_resource type="Texture2D" uid="uid://dtpjfbgbw870d" path="res://assets/undead_tileset/PNG/Objects_separately/Bones_shadow3_7.png" id="2_vgvu4"]
+[ext_resource type="Resource" path="res://data/items/bone.tres" id="3_klqc8"]
+
+[node name="Bone pile" instance=ExtResource("1_4vd7a")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_vgvu4")
+
+[node name="Collectible" parent="." index="2"]
+item = ExtResource("3_klqc8")

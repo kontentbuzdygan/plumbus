@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://ej4hrjus3km3"]
+
+[ext_resource type="Texture2D" uid="uid://wc4ot5k8pt2v" path="res://assets/cave_objects/PNG/Objects_separately/64/Bonefire_light_shadow.png" id="1_53cgs"]
+[ext_resource type="Script" path="res://scripts/crafting_station.gd" id="2_s245e"]
+[ext_resource type="Script" path="res://scripts/recipe.gd" id="3_dwp8j"]
+[ext_resource type="Script" path="res://scripts/timer_progress_bar.gd" id="5_2oevq"]
+[ext_resource type="Resource" uid="uid://du7ref30umfj0" path="res://data/recipes/torch_from_twig.tres" id="5_ak0gi"]
+[ext_resource type="Texture2D" uid="uid://1xcewf837m06" path="res://assets/particle/Spritesheets/Fire+Sparks-Sheet.png" id="6_2xigp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v3pk4"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 5
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2o886"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+damping_min = 50.0
+damping_max = 50.0
+scale_min = 0.3
+scale_max = 0.3
+anim_speed_min = 0.9
+anim_speed_max = 0.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aswbs"]
+size = Vector2(34, 33.3333)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjawq"]
+radius = 27.0514
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1f4g"]
+font_size = 9
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Campfire" type="StaticBody2D"]
+
+[node name="WhiteCrystalLightShadow3" type="Sprite2D" parent="."]
+position = Vector2(0, 27)
+texture = ExtResource("1_53cgs")
+offset = Vector2(0, -39)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_v3pk4")
+position = Vector2(0, -28)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_2o886")
+texture = ExtResource("6_2xigp")
+lifetime = 1.2
+preprocess = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(1, 0.6)
+shape = SubResource("RectangleShape2D_aswbs")
+
+[node name="CraftingStation" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_s245e")
+recipes = Array[ExtResource("3_dwp8j")]([ExtResource("5_ak0gi")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraftingStation"]
+position = Vector2(0, -11)
+scale = Vector2(1, 0.6)
+shape = SubResource("CircleShape2D_gjawq")
+
+[node name="Timer" type="Timer" parent="CraftingStation"]
+one_shot = true
+
+[node name="InteractionPrompt" type="Label" parent="CraftingStation"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -58.0
+offset_right = 42.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E] place
+"
+label_settings = SubResource("LabelSettings_c1f4g")
+horizontal_alignment = 1
+
+[node name="ItemIconsContainer" type="HBoxContainer" parent="CraftingStation"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CraftingStation" node_paths=PackedStringArray("timer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -33.0
+offset_right = 23.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
+script = ExtResource("5_2oevq")
+timer = NodePath("../Timer")
+
+[connection signal="timeout" from="CraftingStation/Timer" to="CraftingStation" method="_on_timer_timeout"]

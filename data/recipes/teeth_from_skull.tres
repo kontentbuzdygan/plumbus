@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://jxtn0i30p3iw"]
+
+[ext_resource type="Script" path="res://scripts/recipe_requirement.gd" id="1_lfmrh"]
+[ext_resource type="Resource" uid="uid://btkpbummiddo7" path="res://data/items/skull.tres" id="2_1svpv"]
+[ext_resource type="Resource" path="res://data/items/teeth.tres" id="3_ej3qe"]
+[ext_resource type="Script" path="res://scripts/recipe.gd" id="4_he4r6"]
+
+[sub_resource type="Resource" id="Resource_e5v7d"]
+script = ExtResource("1_lfmrh")
+item = ExtResource("2_1svpv")
+count = 1
+
+[resource]
+script = ExtResource("4_he4r6")
+requirements = Array[ExtResource("1_lfmrh")]([SubResource("Resource_e5v7d")])
+result = ExtResource("3_ej3qe")
+time_seconds = 1.0
