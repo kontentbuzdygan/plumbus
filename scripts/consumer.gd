@@ -7,7 +7,7 @@ func _is_interactable(player: Player) -> bool:
 
 
 func _interact(player: Player) -> void:
-    var item := player.inventory.remove()
+    var item := player.inventory.remove_first()
     print("placed ", item.name)
 
 

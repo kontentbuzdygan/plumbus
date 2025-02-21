@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://du7ref30umfj0"]
 
 [ext_resource type="Script" path="res://scripts/recipe_requirement.gd" id="1_th80h"]
-[ext_resource type="Resource" path="res://data/items/twig.tres" id="2_dhy4k"]
-[ext_resource type="Resource" path="res://data/items/torch.tres" id="3_d4foq"]
+[ext_resource type="Resource" uid="uid://p66g2jms1hme" path="res://data/items/twig.tres" id="2_dhy4k"]
+[ext_resource type="Resource" uid="uid://barmb3tcwk7b2" path="res://data/items/torch.tres" id="3_d4foq"]
 [ext_resource type="Script" path="res://scripts/recipe.gd" id="4_ps6a6"]
 
 [sub_resource type="Resource" id="Resource_e5v7d"]

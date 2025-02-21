@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbimt856n72ij"]
+
+[ext_resource type="Script" path="res://scripts/new_inventory.gd" id="1_wuspb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p02yn"]
+bg_color = Color(1, 1, 1, 0.588235)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[node name="NewInventory" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_wuspb")
+highlight = SubResource("StyleBoxFlat_p02yn")

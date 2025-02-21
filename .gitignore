@@ -4,3 +4,4 @@
 
 /export
 .DS_Store
+*.tmp

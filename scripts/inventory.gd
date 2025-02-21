@@ -1,33 +1,51 @@
 extends Node2D
 class_name Inventory
 
-var _carried_item: Item
+@export var items: Array[Item]
+@export var capacity: int = 1
 
+# TODO: Display all items
 @onready var _carried_item_icon: Sprite2D = $CarriedItemIcon
 
 
 func add(item: Item) -> void:
-    _carried_item = item
+    items.append(item)
     _update_icon()
 
 
-func remove() -> Item:
-    var item := _carried_item
-    _carried_item = null
+func remove(item: Item) -> void:
+    items.erase(item)
+    _update_icon()
+
+
+func remove_first() -> Item:
+    var item = items.pop_front()
     _update_icon()
     return item
 
 
+func clear() -> void:
+    items.clear()
+    _update_icon()
+
+
 func is_full() -> bool:
-    return _carried_item != null
+    return items.size() >= capacity
+
+
+func is_empty() -> bool:
+    return items.is_empty()
 
 
 func get_item() -> Item:
-    return _carried_item
+    return items[0] if not items.is_empty() else null
 
 
 func _update_icon() -> void:
-    if _carried_item:
-        _carried_item_icon.texture = _carried_item.icon
-    else:
+    if not _carried_item_icon:
+        return
+
+    if items.is_empty():
         _carried_item_icon.texture = null
+    else:
+        _carried_item_icon.texture = items[0].icon
