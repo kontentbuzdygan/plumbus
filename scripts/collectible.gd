@@ -10,7 +10,8 @@ func _is_interactable(player: Player) -> bool:
 
 func _interact(player: Player) -> void:
     if player.inventory.get_item() == item:
-        player.inventory.remove()
+        # player.inventory.remove()
+        pass
     else:
         player.inventory.add(item)
 

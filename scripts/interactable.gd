@@ -5,37 +5,37 @@ class_name Interactable
 
 
 func _ready() -> void:
-    _prompt.visible = false
+	_prompt.visible = false
 
 
 func enter_interaction(player: Player) -> void:
-    _prompt.visible = _is_interactable(player)
-    _prompt.text = _prompt_text(player)
+	_prompt.visible = _is_interactable(player)
+	_prompt.text = _prompt_text(player)
 
 
 func exit_interaction(_player: Player) -> void:
-    _prompt.visible = false
+	_prompt.visible = false
 
 
 func interact(player: Player) -> void:
-    if _is_interactable(player):
-        _interact(player)
+	if _is_interactable(player):
+		_interact(player)
 
-    _prompt.visible = _is_interactable(player)
-    _prompt.text = _prompt_text(player)
+	_prompt.visible = _is_interactable(player)
+	_prompt.text = _prompt_text(player)
 
 
 func _is_interactable(_player: Player) -> bool:
-    return true
+	return true
 
 
 func _interact(_player: Player) -> void:
-    pass
+	pass
 
 
 func _prompt_text(_player: Player) -> String:
-    return "[E] interact"
+	return "[E] interact"
 
 
 func _show_prompt() -> void:
-    _prompt.visible = true
+	_prompt.visible = true

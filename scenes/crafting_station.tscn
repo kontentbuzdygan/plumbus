@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmvim68o51onp"]
+[gd_scene load_steps=10 format=3 uid="uid://bmvim68o51onp"]
 
 [ext_resource type="Texture2D" uid="uid://b4s73a3n0vsx6" path="res://assets/cave_objects/PNG/Objects_separately/128/white_crystal_light_shadow3.png" id="1_0ru2b"]
 [ext_resource type="Script" path="res://scripts/crafting_station.gd" id="2_bovfs"]
 [ext_resource type="Script" path="res://scripts/recipe.gd" id="3_vh8o4"]
 [ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="4_i4dwj"]
 [ext_resource type="Script" path="res://scripts/timer_progress_bar.gd" id="5_a38qc"]
+[ext_resource type="PackedScene" uid="uid://it767bkq8fre" path="res://scenes/inventory_ui.tscn" id="6_x8xe5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aswbs"]
 size = Vector2(34, 33.3333)
@@ -12,7 +13,7 @@ size = Vector2(34, 33.3333)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjawq"]
 radius = 27.0514
 
-[sub_resource type="LabelSettings" id="LabelSettings_c1f4g"]
+[sub_resource type="LabelSettings" id="LabelSettings_6vkgn"]
 font_size = 9
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
@@ -42,37 +43,6 @@ shape = SubResource("CircleShape2D_gjawq")
 [node name="Timer" type="Timer" parent="CraftingStation"]
 one_shot = true
 
-[node name="InteractionPrompt" type="Label" parent="CraftingStation"]
-z_index = 1
-z_as_relative = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -113.0
-offset_right = 42.0
-offset_bottom = -90.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "[E] place
-"
-label_settings = SubResource("LabelSettings_c1f4g")
-horizontal_alignment = 1
-
-[node name="ItemIconsContainer" type="HBoxContainer" parent="CraftingStation"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -93.0
-offset_bottom = -93.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
 [node name="ProgressBar" type="ProgressBar" parent="CraftingStation" node_paths=PackedStringArray("timer")]
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,4 +59,32 @@ show_percentage = false
 script = ExtResource("5_a38qc")
 timer = NodePath("../Timer")
 
+[node name="InteractionPrompt" type="Label" parent="CraftingStation"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -143.0
+offset_right = 41.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E] place
+"
+label_settings = SubResource("LabelSettings_6vkgn")
+horizontal_alignment = 1
+
+[node name="InventoryUi" parent="CraftingStation" groups=["ui"] instance=ExtResource("6_x8xe5")]
+visible = false
+offset_left = -9.0
+offset_top = -128.0
+offset_right = 9.0
+offset_bottom = -92.0
+
 [connection signal="timeout" from="CraftingStation/Timer" to="CraftingStation" method="_on_timer_timeout"]
+[connection signal="item_placed" from="CraftingStation/InventoryUi" to="CraftingStation" method="_on_item_placed"]
+[connection signal="item_taken" from="CraftingStation/InventoryUi" to="CraftingStation" method="_on_item_taken"]

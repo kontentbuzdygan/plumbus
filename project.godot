@@ -22,6 +22,10 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
+[global_group]
+
+ui=""
+
 [input]
 
 move_left={

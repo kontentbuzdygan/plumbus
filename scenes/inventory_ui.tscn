@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://it767bkq8fre"]
+
+[ext_resource type="PackedScene" uid="uid://cicmjsx23lq27" path="res://scenes/inventory_column.tscn" id="1_gr2rn"]
+[ext_resource type="Script" path="res://scripts/inventory_ui.gd" id="1_xf3i8"]
+
+[node name="InventoryUi" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -720.0
+offset_right = -640.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("1_xf3i8")
+column = ExtResource("1_gr2rn")

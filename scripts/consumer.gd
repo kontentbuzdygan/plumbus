@@ -7,8 +7,9 @@ func _is_interactable(player: Player) -> bool:
 
 
 func _interact(player: Player) -> void:
-    var item := player.inventory.remove()
-    print("placed ", item.name)
+    # var item := player.inventory.remove()
+    # print("placed ", item.name)
+    pass
 
 
 func _prompt_text(_player: Player) -> String:

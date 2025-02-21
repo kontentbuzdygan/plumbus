@@ -17,9 +17,12 @@ var last_direction := Vector2.DOWN
 
 
 func _process(_delta: float) -> void:
-    var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-    velocity = direction * SPEED
+    var direction := Vector2.ZERO
 
+    if _is_handling_events():
+        direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
+    velocity = direction * SPEED
     move_and_slide()
     update_animation(direction)
 
@@ -33,3 +36,12 @@ func update_animation(direction: Vector2) -> void:
             last_direction = direction
 
     animated_sprite_2d.play(direction_names.get(last_direction) + "_walk")
+
+
+func _is_handling_events() -> bool:
+    # TODO: This is so ugly I can't
+    for ui_node in get_tree().get_nodes_in_group("ui"):
+        if "visible" in ui_node and ui_node.visible:
+            return false
+
+    return true
