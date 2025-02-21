@@ -6,8 +6,11 @@ class_name Recipe
 @export var time_seconds: float
 
 
-func is_satisfied(items: Array[Item]) -> bool:
+func matches(items: Array[Item]) -> bool:
     var items_counts := Utils.counts(items)
+
+    if items_counts.size() != requirements.size():
+        return false
 
     for requirement in requirements:
         if requirement.item not in items_counts or items_counts[requirement.item] < requirement.count:

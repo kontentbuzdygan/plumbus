@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmvim68o51onp"]
+[gd_scene load_steps=11 format=3 uid="uid://bmvim68o51onp"]
 
 [ext_resource type="Texture2D" uid="uid://b4s73a3n0vsx6" path="res://assets/cave_objects/PNG/Objects_separately/128/white_crystal_light_shadow3.png" id="1_0ru2b"]
 [ext_resource type="Script" path="res://scripts/crafting_station.gd" id="2_bovfs"]
 [ext_resource type="Script" path="res://scripts/recipe.gd" id="3_vh8o4"]
 [ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="4_i4dwj"]
 [ext_resource type="Script" path="res://scripts/timer_progress_bar.gd" id="5_a38qc"]
-[ext_resource type="PackedScene" uid="uid://it767bkq8fre" path="res://scenes/inventory_ui.tscn" id="6_x8xe5"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="5_ahe5s"]
+[ext_resource type="PackedScene" uid="uid://bbimt856n72ij" path="res://scenes/new_inventory.tscn" id="6_o7kca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aswbs"]
 size = Vector2(34, 33.3333)
@@ -34,6 +35,10 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_bovfs")
 recipes = Array[ExtResource("3_vh8o4")]([ExtResource("4_i4dwj")])
+
+[node name="Inventory" type="Node2D" parent="CraftingStation"]
+script = ExtResource("5_ahe5s")
+capacity = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CraftingStation"]
 position = Vector2(0, -11)
@@ -78,13 +83,12 @@ text = "[E] place
 label_settings = SubResource("LabelSettings_6vkgn")
 horizontal_alignment = 1
 
-[node name="InventoryUi" parent="CraftingStation" groups=["ui"] instance=ExtResource("6_x8xe5")]
+[node name="NewInventory" parent="CraftingStation" node_paths=PackedStringArray("bottom_inventory") instance=ExtResource("6_o7kca")]
 visible = false
-offset_left = -9.0
-offset_top = -128.0
-offset_right = 9.0
-offset_bottom = -92.0
+offset_top = -127.0
+offset_bottom = -91.0
+grow_horizontal = 1
+grow_vertical = 1
+bottom_inventory = NodePath("../Inventory")
 
 [connection signal="timeout" from="CraftingStation/Timer" to="CraftingStation" method="_on_timer_timeout"]
-[connection signal="item_placed" from="CraftingStation/InventoryUi" to="CraftingStation" method="_on_item_placed"]
-[connection signal="item_taken" from="CraftingStation/InventoryUi" to="CraftingStation" method="_on_item_taken"]

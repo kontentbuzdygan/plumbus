@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=8 format=3 uid="uid://3rj5vn23rdnx"]
 
 [ext_resource type="Script" path="res://scripts/recipe_requirement.gd" id="1_xqupt"]
-[ext_resource type="Resource" path="res://data/items/axe.tres" id="2_bwr8d"]
-[ext_resource type="Resource" path="res://data/items/tree_stump.tres" id="3_xj2lp"]
-[ext_resource type="Resource" path="res://data/items/twig.tres" id="4_bmnq2"]
+[ext_resource type="Resource" uid="uid://duk6on66cjyg0" path="res://data/items/axe.tres" id="2_bwr8d"]
+[ext_resource type="Resource" uid="uid://bfv770a5mkic2" path="res://data/items/tree_stump.tres" id="3_xj2lp"]
+[ext_resource type="Resource" uid="uid://p66g2jms1hme" path="res://data/items/twig.tres" id="4_bmnq2"]
 [ext_resource type="Script" path="res://scripts/recipe.gd" id="4_rtbqy"]
 
 [sub_resource type="Resource" id="Resource_e5v7d"]

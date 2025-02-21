@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://gansebs1it8x"]
 
 [ext_resource type="Script" path="res://scripts/recipe_requirement.gd" id="1_4amsw"]
-[ext_resource type="Resource" path="res://data/items/bone.tres" id="2_mjn5d"]
-[ext_resource type="Resource" path="res://data/items/bone_daggers.tres" id="3_mff28"]
+[ext_resource type="Resource" uid="uid://blt32ryxc68eh" path="res://data/items/bone.tres" id="2_mjn5d"]
+[ext_resource type="Resource" uid="uid://dax4onym5dwpx" path="res://data/items/bone_daggers.tres" id="3_mff28"]
 [ext_resource type="Script" path="res://scripts/recipe.gd" id="4_la7jm"]
 
 [sub_resource type="Resource" id="Resource_e5v7d"]

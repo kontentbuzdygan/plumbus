@@ -1,18 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bg7l5qu7v2scq"]
+[gd_scene load_steps=9 format=3 uid="uid://bg7l5qu7v2scq"]
 
 [ext_resource type="PackedScene" uid="uid://cojhx0jffxabc" path="res://scenes/player.tscn" id="1_2xg75"]
 [ext_resource type="PackedScene" uid="uid://cy56dpg6eiijb" path="res://scenes/terrain.tscn" id="1_mo36r"]
 [ext_resource type="PackedScene" uid="uid://dywkso3al7ms0" path="res://scenes/collectible.tscn" id="1_ss0bx"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_7c8ot"]
 [ext_resource type="PackedScene" uid="uid://b1evaa01a0ekl" path="res://scenes/consumer.tscn" id="3_r62ag"]
-[ext_resource type="Script" path="res://scripts/recipe.gd" id="6_d7ue0"]
 [ext_resource type="PackedScene" uid="uid://bmvim68o51onp" path="res://scenes/crafting_station.tscn" id="6_l8a5n"]
-[ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="7_6vkxm"]
-[ext_resource type="Resource" uid="uid://gghchlnoxfa0" path="res://data/recipes/crown_from_bloob_and_iron.tres" id="8_cgsw4"]
 [ext_resource type="PackedScene" uid="uid://bks7j8il4uvf5" path="res://scenes/collectibles/axe.tscn" id="10_eng1b"]
-[ext_resource type="PackedScene" uid="uid://dy5u2dlgnlhnh" path="res://scenes/crafting stations/broken_tree.tscn" id="11_7w2wx"]
-[ext_resource type="PackedScene" uid="uid://ej4hrjus3km3" path="res://scenes/crafting stations/campfire.tscn" id="12_arj2m"]
-[ext_resource type="PackedScene" uid="uid://cuo5we6kry8wb" path="res://scenes/crafting stations/stone_tablet.tscn" id="13_tkd2c"]
 [ext_resource type="PackedScene" uid="uid://btt7srjxfhunx" path="res://scenes/collectibles/pustules.tscn" id="14_nppg2"]
 
 [node name="Game" type="Node2D"]
@@ -34,9 +28,6 @@ position = Vector2(47, -46)
 [node name="Collectible" parent="YSort" instance=ExtResource("1_ss0bx")]
 position = Vector2(135, -39)
 
-[node name="Campfire" parent="YSort" instance=ExtResource("12_arj2m")]
-position = Vector2(5, 44)
-
 [node name="Pustules" parent="YSort" instance=ExtResource("14_nppg2")]
 position = Vector2(28, 83)
 
@@ -47,17 +38,6 @@ script = ExtResource("2_7c8ot")
 [node name="CraftingStation" parent="YSort" instance=ExtResource("6_l8a5n")]
 position = Vector2(71, 57)
 
-[node name="CraftingStation" parent="YSort/CraftingStation" index="2"]
-recipes = Array[ExtResource("6_d7ue0")]([ExtResource("7_6vkxm"), ExtResource("8_cgsw4")])
-
-[node name="CraftingStation2" parent="YSort" instance=ExtResource("11_7w2wx")]
-position = Vector2(-13, -29)
-
-[node name="Stone tablet" parent="YSort" instance=ExtResource("13_tkd2c")]
-position = Vector2(144, 2)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, 18)
 zoom = Vector2(2, 2)
-
-[editable path="YSort/CraftingStation"]

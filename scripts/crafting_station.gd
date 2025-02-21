@@ -4,35 +4,36 @@ class_name CraftingStation
 @export var recipes: Array[Recipe]
 
 @onready var _timer: Timer = $Timer
-@onready var _ui: InventoryUi = $InventoryUi
+@onready var _inventory: Inventory = $Inventory
+@onready var _ui: NewInventory = $NewInventory
 
-var _items: Array[Item] = []
 var _active_recipe: Recipe
 var _is_finished: bool = false
 
 
 func _is_interactable(player: Player) -> bool:
-    return not player.inventory.items.is_empty() or not _items.is_empty()
+    return not player.inventory.is_empty() or not _inventory.is_empty()
 
 
 func _interact(player: Player) -> void:
     if _ui.visible:
-        _ui.visible = false
+        player.set_process(true)
+        _ui.hide()
+
+        for recipe in recipes:
+            if recipe.matches(_inventory.items):
+                _inventory.clear()
+                _active_recipe = recipe
+                _timer.start(recipe.time_seconds)
+                break
     else:
-        _ui.inventory = player.inventory
-        _ui.set_items(player.inventory.items, _items)
-        _ui.visible = true
-
-
-func _on_item_taken(item: Item) -> void:
-    _items.erase(item)
-
-
-func _on_item_placed(item: Item) -> void:
-    _items.append(item)
+        player.set_process(false)
+        _ui.top_inventory = player.inventory
+        _ui.open()
 
 
 func _on_timer_timeout() -> void:
     if _active_recipe:
+        _inventory.add(_active_recipe.result)
         _active_recipe = null
         _is_finished = true

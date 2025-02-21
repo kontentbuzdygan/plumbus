@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgtejnm7kc67u"]
+
+[ext_resource type="PackedScene" uid="uid://bbimt856n72ij" path="res://scenes/new_inventory.tscn" id="1_cfbqa"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="2_ib326"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="3_sglk3"]
+[ext_resource type="Resource" uid="uid://duk6on66cjyg0" path="res://data/items/axe.tres" id="4_jhiom"]
+[ext_resource type="Resource" uid="uid://dm8q0hff5sguu" path="res://data/items/bloob.tres" id="5_j4eke"]
+[ext_resource type="Resource" uid="uid://cf8vkycr62s3r" path="res://data/items/blue_potion.tres" id="6_vi8l3"]
+[ext_resource type="Resource" uid="uid://cxa6t4xysi00w" path="res://data/items/crown.tres" id="7_rt1x4"]
+
+[node name="NewInventoryTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewInventory" parent="." node_paths=PackedStringArray("top_inventory", "bottom_inventory") instance=ExtResource("1_cfbqa")]
+layout_mode = 1
+top_inventory = NodePath("../TopInventory")
+bottom_inventory = NodePath("../BottomInventory")
+
+[node name="TopInventory" type="Node2D" parent="."]
+script = ExtResource("2_ib326")
+items = Array[ExtResource("3_sglk3")]([ExtResource("4_jhiom")])
+
+[node name="BottomInventory" type="Node2D" parent="."]
+script = ExtResource("2_ib326")
+items = Array[ExtResource("3_sglk3")]([ExtResource("5_j4eke"), ExtResource("6_vi8l3"), ExtResource("7_rt1x4")])
+capacity = 10
