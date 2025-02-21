@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy5u2dlgnlhnh"]
+
+[ext_resource type="Texture2D" uid="uid://dkmy6jo0x0nbp" path="res://assets/undead_tileset/PNG/Objects_separately/Tree_shadow1_1.png" id="1_n261r"]
+[ext_resource type="Script" path="res://scripts/crafting_station.gd" id="2_u5gci"]
+[ext_resource type="Script" path="res://scripts/recipe.gd" id="3_3jpdu"]
+[ext_resource type="Resource" uid="uid://bko8cj12e1lu6" path="res://data/recipes/tree_stump_from_axe.tres" id="4_kxq5b"]
+[ext_resource type="Script" path="res://scripts/timer_progress_bar.gd" id="5_cl8tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aswbs"]
+size = Vector2(34, 33.3333)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjawq"]
+radius = 27.0514
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1f4g"]
+font_size = 9
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CraftingStation" type="StaticBody2D"]
+
+[node name="WhiteCrystalLightShadow3" type="Sprite2D" parent="."]
+texture = ExtResource("1_n261r")
+offset = Vector2(0, -39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(1, 0.6)
+shape = SubResource("RectangleShape2D_aswbs")
+
+[node name="CraftingStation" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_u5gci")
+recipes = Array[ExtResource("3_3jpdu")]([ExtResource("4_kxq5b")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraftingStation"]
+position = Vector2(0, -11)
+scale = Vector2(1, 0.6)
+shape = SubResource("CircleShape2D_gjawq")
+
+[node name="Timer" type="Timer" parent="CraftingStation"]
+one_shot = true
+
+[node name="InteractionPrompt" type="Label" parent="CraftingStation"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -113.0
+offset_right = 42.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E] place
+"
+label_settings = SubResource("LabelSettings_c1f4g")
+horizontal_alignment = 1
+
+[node name="ItemIconsContainer" type="HBoxContainer" parent="CraftingStation"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -93.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CraftingStation" node_paths=PackedStringArray("timer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -88.0
+offset_right = 23.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
+script = ExtResource("5_cl8tv")
+timer = NodePath("../Timer")
+
+[connection signal="timeout" from="CraftingStation/Timer" to="CraftingStation" method="_on_timer_timeout"]

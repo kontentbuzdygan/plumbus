@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://du7ref30umfj0"]
+
+[ext_resource type="Script" path="res://scripts/recipe_requirement.gd" id="1_th80h"]
+[ext_resource type="Resource" path="res://data/items/twig.tres" id="2_dhy4k"]
+[ext_resource type="Resource" path="res://data/items/torch.tres" id="3_d4foq"]
+[ext_resource type="Script" path="res://scripts/recipe.gd" id="4_ps6a6"]
+
+[sub_resource type="Resource" id="Resource_e5v7d"]
+script = ExtResource("1_th80h")
+item = ExtResource("2_dhy4k")
+count = 1
+
+[resource]
+script = ExtResource("4_ps6a6")
+requirements = Array[ExtResource("1_th80h")]([SubResource("Resource_e5v7d")])
+result = ExtResource("3_d4foq")
+time_seconds = 1.0

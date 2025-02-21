@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://gansebs1it8x"]
+
+[ext_resource type="Script" path="res://scripts/recipe_requirement.gd" id="1_4amsw"]
+[ext_resource type="Resource" path="res://data/items/bone.tres" id="2_mjn5d"]
+[ext_resource type="Resource" path="res://data/items/bone_daggers.tres" id="3_mff28"]
+[ext_resource type="Script" path="res://scripts/recipe.gd" id="4_la7jm"]
+
+[sub_resource type="Resource" id="Resource_e5v7d"]
+script = ExtResource("1_4amsw")
+item = ExtResource("2_mjn5d")
+count = 1
+
+[resource]
+script = ExtResource("4_la7jm")
+requirements = Array[ExtResource("1_4amsw")]([SubResource("Resource_e5v7d")])
+result = ExtResource("3_mff28")
+time_seconds = 1.0

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://btt7srjxfhunx"]
+
+[ext_resource type="PackedScene" uid="uid://dywkso3al7ms0" path="res://scenes/collectible.tscn" id="1_asc15"]
+[ext_resource type="Texture2D" uid="uid://cjerhvqe2u7x5" path="res://assets/cursed_land_tileset/PNG/Objects_separetely/Pustules_shadow1_2.png" id="2_hw0v4"]
+[ext_resource type="Resource" path="res://data/items/pustules.tres" id="3_vcbim"]
+
+[node name="Pustules" instance=ExtResource("1_asc15")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -10)
+texture = ExtResource("2_hw0v4")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -12.3438)
+
+[node name="Collectible" parent="." index="2"]
+item = ExtResource("3_vcbim")
