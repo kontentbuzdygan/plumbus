@@ -5,7 +5,7 @@ class_name Collectible
 
 
 func _is_interactable(player: Player) -> bool:
-    return not player.inventory.is_full() or player.inventory.get_item() == item
+    return Globals.is_game_running and not player.inventory.is_full() or player.inventory.get_item() == item
 
 
 func _interact(player: Player) -> void:

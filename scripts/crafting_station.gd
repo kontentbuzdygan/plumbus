@@ -12,7 +12,7 @@ var _is_finished: bool = false
 
 
 func _is_interactable(player: Player) -> bool:
-    return _is_accepting_items() and player.inventory.get_item() != null \
+    return Globals.is_game_running and _is_accepting_items() and player.inventory.get_item() != null \
         or _is_providing_items() and not player.inventory.is_full()
 
 
@@ -71,3 +71,11 @@ func _is_accepting_items() -> bool:
 
 func _is_providing_items() -> bool:
     return _active_recipe == null and _items.size() == 1
+    
+
+func _game_end() -> void:
+    _clear_items()
+    _timer.stop()
+    _is_finished = false
+    _prompt.visible = false
+    _active_recipe = null

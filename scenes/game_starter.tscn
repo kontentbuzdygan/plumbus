@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://d20hvtxd666su"]
+
+[ext_resource type="Texture2D" uid="uid://b4btfulfl8ddi" path="res://assets/undead_tileset/PNG/Objects_separately/Dead_arm_shadow2_1.png" id="1_ptgrp"]
+[ext_resource type="Script" path="res://scripts/game_starter.gd" id="2_mqnu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q8cf"]
+size = Vector2(32, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gycgk"]
+radius = 14.1421
+
+[sub_resource type="LabelSettings" id="LabelSettings_khyfs"]
+font_size = 9
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game starter" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -24)
+texture = ExtResource("1_ptgrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, -1)
+shape = SubResource("RectangleShape2D_5q8cf")
+
+[node name="GameStarter" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_mqnu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStarter"]
+position = Vector2(9, -5)
+scale = Vector2(1.44, 1)
+shape = SubResource("CircleShape2D_gycgk")
+
+[node name="InteractionPrompt" type="Label" parent="GameStarter"]
+offset_left = -54.0
+offset_top = -71.0
+offset_right = 55.0
+offset_bottom = -48.0
+text = "[E] Start game"
+label_settings = SubResource("LabelSettings_khyfs")
+horizontal_alignment = 1
