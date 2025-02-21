@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdml3quhgwp1y"]
+
+[ext_resource type="Texture2D" uid="uid://ch2rscc7ad1n7" path="res://assets/ores/ore.png" id="1_k4qdg"]
+[ext_resource type="Script" path="res://scripts/crafting_station.gd" id="2_lau48"]
+[ext_resource type="Script" path="res://scripts/timer_progress_bar.gd" id="5_kl7u8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hto5c"]
+atlas = ExtResource("1_k4qdg")
+region = Rect2(0, 384, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u33rg"]
+atlas = ExtResource("1_k4qdg")
+region = Rect2(64, 384, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rl6w"]
+atlas = ExtResource("1_k4qdg")
+region = Rect2(128, 384, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ln2r"]
+atlas = ExtResource("1_k4qdg")
+region = Rect2(192, 384, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tk5vs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hto5c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u33rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rl6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ln2r")
+}],
+"loop": true,
+"name": &"processing",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aswbs"]
+size = Vector2(59, 36.6666)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjawq"]
+radius = 27.0514
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1f4g"]
+font_size = 9
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Furnace" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_tk5vs")
+animation = &"processing"
+autoplay = "processing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -12)
+scale = Vector2(1, 0.6)
+shape = SubResource("RectangleShape2D_aswbs")
+
+[node name="CraftingStation" type="Area2D" parent="."]
+scale = Vector2(1.6, 1.28)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_lau48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraftingStation"]
+position = Vector2(0, -11)
+scale = Vector2(1, 0.6)
+shape = SubResource("CircleShape2D_gjawq")
+
+[node name="Timer" type="Timer" parent="CraftingStation"]
+one_shot = true
+
+[node name="InteractionPrompt" type="Label" parent="CraftingStation"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -103.125
+offset_right = 42.0
+offset_bottom = -80.125
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E] place
+"
+label_settings = SubResource("LabelSettings_c1f4g")
+horizontal_alignment = 1
+
+[node name="ItemIconsContainer" type="HBoxContainer" parent="CraftingStation"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -83.125
+offset_bottom = -83.125
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CraftingStation" node_paths=PackedStringArray("timer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -78.125
+offset_right = 23.0
+offset_bottom = -74.125
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
+script = ExtResource("5_kl7u8")
+timer = NodePath("../Timer")
+
+[connection signal="timeout" from="CraftingStation/Timer" to="CraftingStation" method="_on_timer_timeout"]

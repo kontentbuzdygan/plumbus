@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://gjblm6py5myf"]
+
+[ext_resource type="PackedScene" uid="uid://dywkso3al7ms0" path="res://scenes/collectible.tscn" id="1_ck7v3"]
+[ext_resource type="Texture2D" uid="uid://dmpx8xfxfxrfa" path="res://assets/cursed_land_tileset/PNG/Objects_separetely/Spike_plant_shadow2_4.png" id="2_mpsfw"]
+[ext_resource type="Resource" path="res://data/items/eyeballs.tres" id="3_bdbia"]
+
+[node name="Eyeball plant" instance=ExtResource("1_ck7v3")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -28)
+texture = ExtResource("2_mpsfw")
+
+[node name="Collectible" parent="." index="2"]
+item = ExtResource("3_bdbia")
