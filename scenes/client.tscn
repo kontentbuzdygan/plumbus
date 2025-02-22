@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://yfjah43oomi"]
+
+[ext_resource type="Texture2D" uid="uid://cy0x8b2bcdmw7" path="res://assets/seabed_objects/PNG/Objects_separately_2/256/Crab_shadow1.png" id="1_60s3y"]
+[ext_resource type="PackedScene" uid="uid://cabqvj0biawwx" path="res://scenes/orders.tscn" id="2_3js2l"]
+[ext_resource type="Script" path="res://scripts/client.gd" id="2_qm08s"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="3_ah3rd"]
+[ext_resource type="Resource" uid="uid://barmb3tcwk7b2" path="res://data/items/torch.tres" id="4_v581a"]
+[ext_resource type="Resource" uid="uid://c8s14rthhfb2" path="res://data/items/bloody_skull.tres" id="5_pck7u"]
+[ext_resource type="Resource" uid="uid://drhrpolv1exb7" path="res://data/items/teeth.tres" id="6_jn7q8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffbix"]
+size = Vector2(76, 81)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xudep"]
+radius = 59.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0nojk"]
+font_size = 9
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Client" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_60s3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1.5)
+shape = SubResource("RectangleShape2D_ffbix")
+
+[node name="Orders" parent="." instance=ExtResource("2_3js2l")]
+wanted_items = Array[ExtResource("3_ah3rd")]([ExtResource("4_v581a"), ExtResource("5_pck7u"), ExtResource("6_jn7q8")])
+
+[node name="Client" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_qm08s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Client"]
+shape = SubResource("CircleShape2D_xudep")
+
+[node name="InteractionPrompt" type="Label" parent="Client"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -83.0
+offset_right = 42.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E] feed the crab
+"
+label_settings = SubResource("LabelSettings_0nojk")
+horizontal_alignment = 1

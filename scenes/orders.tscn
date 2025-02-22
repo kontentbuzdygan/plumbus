@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cabqvj0biawwx"]
+
+[ext_resource type="Script" path="res://orders.gd" id="1_nji0o"]
+
+[node name="Orders" type="Timer"]
+one_shot = true
+script = ExtResource("1_nji0o")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
