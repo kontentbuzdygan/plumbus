@@ -12,9 +12,9 @@ func _interact(player: Player):
     var order = orders.find_item_in_orders(item)
     if order:
         Globals.gold += 10
-        Globals.satisfaction += 10
+        Globals.satisfaction = clamp(Globals.satisfaction + 10, 0, 100)
     else:
-        Globals.satisfaction -= 20
+        Globals.satisfaction = clamp(Globals.satisfaction - 20, 0, 100)
         
     orders.finish_order(order)
 

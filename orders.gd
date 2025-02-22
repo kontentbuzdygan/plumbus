@@ -3,6 +3,7 @@ class_name Orders
 
 @export var wanted_items: Array[Item]
 var active_orders: Array[Order] = []
+const max_orders := 4
 
 func _ready() -> void:
     Eventbus.start_timer.connect(_game_start)
@@ -30,7 +31,7 @@ func _on_timeout() -> void:
     if not Globals.is_game_running:
         return
         
-    if active_orders.size() < 4:
+    if active_orders.size() < max_orders:
         var item = wanted_items.pick_random()
         var order = Order.new(item)
         order.item = item

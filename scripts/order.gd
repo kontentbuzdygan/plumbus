@@ -15,5 +15,5 @@ func _init(_item: Item) -> void:
 
 
 func _timer_timeout() -> void:
-    Globals.satisfaction -= 20
+    Globals.satisfaction = clamp(Globals.satisfaction - 20, 0, 100)
     Eventbus.timeout_order.emit(self)

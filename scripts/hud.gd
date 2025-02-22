@@ -29,19 +29,22 @@ func _format_time(seconds: int) -> String:
 
 func _game_end() -> void:
     round_label.text = "Round: %s" % str(Globals.round)
-    for child in orders.get_children():
-        child.queue_free()
+    _remove_orders()
     
     
 func _redraw_orders(_orders: Array[Order]) -> void:
-    for child in orders.get_children():
-        child.queue_free()
+    _remove_orders()
     
     for order in _orders:
         var instance = order_icon.instantiate()
         orders.add_child(instance)
         instance.texture_rect.texture = order.item.icon
         instance.progress_bar.timer = order.timer
+        
+
+func _remove_orders() -> void:
+    for child in orders.get_children():
+        child.queue_free()
     
 
 func _new_order(_orders: Array[Order]) -> void:
