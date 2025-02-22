@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ndmlxwiute5m"]
+[gd_scene load_steps=9 format=3 uid="uid://ndmlxwiute5m"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_42d4f"]
+[ext_resource type="Texture2D" uid="uid://d33caou2ab0y8" path="res://assets/mini_pocket_status/PNG/SpriteSheet.png" id="2_x6pqd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g2ksn"]
 font_size = 32
@@ -12,6 +13,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f1j5i"]
 font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nnth"]
+atlas = ExtResource("2_x6pqd")
+region = Rect2(38, 983, 109, 34)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khd7n"]
 bg_color = Color(6.257e-07, 0.718423, 0.361754, 1)
@@ -63,12 +68,23 @@ grow_vertical = 0
 text = "Gold: 0"
 label_settings = SubResource("LabelSettings_f1j5i")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -397.0
+offset_bottom = 78.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_2nnth")
+
 [node name="SatisfactionProgress" type="ProgressBar" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -400.0
-offset_bottom = 20.0
+offset_left = -373.0
+offset_top = 18.0
+offset_right = -58.0
+offset_bottom = 38.0
 grow_horizontal = 0
 theme = SubResource("Theme_epfx7")
 step = 10.0
