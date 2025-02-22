@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d476qxii2ap0"]
+[gd_scene load_steps=7 format=3 uid="uid://ndmlxwiute5m"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_42d4f"]
 
@@ -9,6 +9,15 @@ font_size = 32
 font_size = 32
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1j5i"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khd7n"]
+bg_color = Color(6.257e-07, 0.718423, 0.361754, 1)
+
+[sub_resource type="Theme" id="Theme_epfx7"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_khd7n")
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_42d4f")
@@ -36,3 +45,31 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "0:00"
 label_settings = SubResource("LabelSettings_mm56r")
+
+[node name="Orders" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GoldLabel" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Gold: 0"
+label_settings = SubResource("LabelSettings_f1j5i")
+
+[node name="SatisfactionProgress" type="ProgressBar" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
+offset_bottom = 20.0
+grow_horizontal = 0
+theme = SubResource("Theme_epfx7")
+step = 10.0
+show_percentage = false
