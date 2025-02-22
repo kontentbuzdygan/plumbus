@@ -51,13 +51,13 @@ func _unhandled_input(event: InputEvent) -> void:
         return
 
     if event.is_action_pressed("ui_up"):
-        if not top_inventory.is_full():
+        if states[selected] == ColumnState.BOTTOM and not top_inventory.is_full():
             bottom_inventory.remove(items[selected])
             top_inventory.add(items[selected])
             states[selected] = ColumnState.TOP
 
     if event.is_action_pressed("ui_down"):
-        if not bottom_inventory.is_full():
+        if states[selected] == ColumnState.TOP and not bottom_inventory.is_full():
             top_inventory.remove(items[selected])
             bottom_inventory.add(items[selected])
             states[selected] = ColumnState.BOTTOM
