@@ -5,6 +5,9 @@ var _carried_item: Item
 
 @onready var _carried_item_icon: Sprite2D = $CarriedItemIcon
 
+func _ready() -> void:
+    Eventbus.game_end.connect(remove)
+
 
 func add(item: Item) -> void:
     _carried_item = item

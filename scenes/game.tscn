@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bg7l5qu7v2scq"]
+[gd_scene load_steps=18 format=3 uid="uid://bg7l5qu7v2scq"]
 
 [ext_resource type="PackedScene" uid="uid://cojhx0jffxabc" path="res://scenes/player.tscn" id="1_2xg75"]
 [ext_resource type="PackedScene" uid="uid://cy56dpg6eiijb" path="res://scenes/terrain.tscn" id="1_mo36r"]
@@ -10,10 +10,13 @@
 [ext_resource type="Resource" uid="uid://cov3oxvqlu1kj" path="res://data/recipes/iron_from_bloob.tres" id="7_6vkxm"]
 [ext_resource type="Resource" uid="uid://gghchlnoxfa0" path="res://data/recipes/crown_from_bloob_and_iron.tres" id="8_cgsw4"]
 [ext_resource type="PackedScene" uid="uid://bks7j8il4uvf5" path="res://scenes/collectibles/axe.tscn" id="10_eng1b"]
+[ext_resource type="PackedScene" uid="uid://d476qxii2ap0" path="res://scenes/hud.tscn" id="10_s5j6n"]
 [ext_resource type="PackedScene" uid="uid://dy5u2dlgnlhnh" path="res://scenes/crafting stations/broken_tree.tscn" id="11_7w2wx"]
+[ext_resource type="PackedScene" uid="uid://dlpkpthdtgw1s" path="res://scenes/game_countdown.tscn" id="11_th1tj"]
 [ext_resource type="PackedScene" uid="uid://ej4hrjus3km3" path="res://scenes/crafting stations/campfire.tscn" id="12_arj2m"]
 [ext_resource type="PackedScene" uid="uid://cuo5we6kry8wb" path="res://scenes/crafting stations/stone_tablet.tscn" id="13_tkd2c"]
 [ext_resource type="PackedScene" uid="uid://btt7srjxfhunx" path="res://scenes/collectibles/pustules.tscn" id="14_nppg2"]
+[ext_resource type="PackedScene" uid="uid://d20hvtxd666su" path="res://scenes/game_starter.tscn" id="17_edc3k"]
 
 [node name="Game" type="Node2D"]
 
@@ -40,6 +43,9 @@ position = Vector2(5, 44)
 [node name="Pustules" parent="YSort" instance=ExtResource("14_nppg2")]
 position = Vector2(28, 83)
 
+[node name="Game starter" parent="YSort" instance=ExtResource("17_edc3k")]
+position = Vector2(87, -79)
+
 [node name="Player" parent="YSort" instance=ExtResource("1_2xg75")]
 position = Vector2(23, 3)
 script = ExtResource("2_7c8ot")
@@ -59,5 +65,10 @@ position = Vector2(144, 2)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, 18)
 zoom = Vector2(2, 2)
+
+[node name="HUD" parent="." instance=ExtResource("10_s5j6n")]
+
+[node name="GameCountdown" parent="." instance=ExtResource("11_th1tj")]
+autostart = false
 
 [editable path="YSort/CraftingStation"]

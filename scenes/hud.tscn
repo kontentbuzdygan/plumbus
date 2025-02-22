@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://d476qxii2ap0"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_42d4f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g2ksn"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_mm56r"]
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_42d4f")
+
+[node name="RoundLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_right = 136.0
+grow_vertical = 0
+text = "Round: 1"
+label_settings = SubResource("LabelSettings_g2ksn")
+
+[node name="CountdownLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -45.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0:00"
+label_settings = SubResource("LabelSettings_mm56r")

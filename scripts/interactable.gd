@@ -5,6 +5,7 @@ class_name Interactable
 
 
 func _ready() -> void:
+    Eventbus.game_end.connect(_game_end)
     _prompt.visible = false
 
 
@@ -39,3 +40,6 @@ func _prompt_text(_player: Player) -> String:
 
 func _show_prompt() -> void:
     _prompt.visible = true
+    
+func _game_end() -> void:
+    pass
